@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九月幸福小事日历</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui, sans-serif;}
+body{background:#fff8ef;padding:16px;color:#5c4b3e;}
+h1{text-align:center;margin-bottom:16px;font-size:22px;}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;max-width:700px;margin:0 auto;}
+.day-card{background:#fff;border-radius:10px;padding:8px;min-height:90px;border:1px solid #e9ddcf;}
+.date-num{font-weight:bold;margin-bottom:4px;}
+textarea{width:100%;border:none;outline:none;background:transparent;font-size:13px;resize:none;height:50px;color:#5c4b3e;}
+.week-title{text-align:center;font-size:14px;padding:4px;font-weight:bold;color:#8c7360;}
+</style>
+</head>
+<body>
+<h1>九月 · 每日幸福小事</h1>
+<div class="calendar">
+  <div class="week-title">周一</div>
+  <div class="week-title">周二</div>
+  <div class="week-title">周三</div>
+  <div class="week-title">周四</div>
+  <div class="week-title">周五</div>
+  <div class="week-title">周六</div>
+  <div class="week-title">周日</div>
+  <!-- 9月1日是周二 -->
+  <div></div>
+  <div class="day-card"><div class="date-num">9.1</div><textarea data-key="day1"></textarea></div>
+  <div class="day-card"><div class="date-num">9.2</div><textarea data-key="day2"></textarea></div>
+  <div class="day-card"><div class="date-num">9.3</div><textarea data-key="day3"></textarea></div>
+  <div class="day-card"><div class="date-num">9.4</div><textarea data-key="day4"></textarea></div>
+  <div class="day-card"><div class="date-num">9.5</div><textarea data-key="day5"></textarea></div>
+  <div class="day-card"><div class="date-num">9.6</div><textarea data-key="day6"></textarea></div>
+
+  <div class="day-card"><div class="date-num">9.7</div><textarea data-key="day7"></textarea></div>
+  <div class="day-card"><div class="date-num">9.8</div><textarea data-key="day8"></textarea></div>
+  <div class="day-card"><div class="date-num">9.9</div><textarea data-key="day9"></textarea></div>
+  <div class="day-card"><div class="date-num">9.10</div><textarea data-key="day10"></textarea></div>
+  <div class="day-card"><div class="date-num">9.11</div><textarea data-key="day11"></textarea></div>
+  <div class="day-card"><div class="date-num">9.12</div><textarea data-key="day12"></textarea></div>
+  <div class="day-card"><div class="date-num">9.13</div><textarea data-key="day13"></textarea></div>
+
+  <div class="day-card"><div class="date-num">9.14</div><textarea data-key="day14"></textarea></div>
+  <div class="day-card"><div class="date-num">9.15</div><textarea data-key="day15"></textarea></div>
+  <div class="day-card"><div class="date-num">9.16</div><textarea data-key="day16"></textarea></div>
+  <div class="day-card"><div class="date-num">9.17</div><textarea data-key="day17"></textarea></div>
+  <div class="day-card"><div class="date-num">9.18</div><textarea data-key="day18"></textarea></div>
+  <div class="day-card"><div class="date-num">9.19</div><textarea data-key="day19"></textarea></div>
+  <div class="day-card"><div class="date-num">9.20</div><textarea data-key="day20"></textarea></div>
+
+  <div class="day-card"><div class="date-num">9.21</div><textarea data-key="day21"></textarea></div>
+  <div class="day-card"><div class="date-num">9.22</div><textarea data-key="day22"></textarea></div>
+  <div class="day-card"><div class="date-num">9.23</div><textarea data-key="day23"></textarea></div>
+  <div class="day-card"><div class="date-num">9.24</div><textarea data-key="day24"></textarea></div>
+  <div class="day-card"><div class="date-num">9.25</div><textarea data-key="day25"></textarea></div>
+  <div class="day-card"><div class="date-num">9.26</div><textarea data-key="day26"></textarea></div>
+  <div class="day-card"><div class="date-num">9.27</div><textarea data-key="day27"></textarea></div>
+
+  <div class="day-card"><div class="date-num">9.28</div><textarea data-key="day28"></textarea></div>
+  <div class="day-card"><div class="date-num">9.29</div><textarea data-key="day29"></textarea></div>
+  <div class="day-card"><div class="date-num">9.30</div><textarea data-key="day30"></textarea></div>
+  <div></div><div></div><div></div>
+</div>
+
+<script>
+//读取本地存储
+const items = document.querySelectorAll('textarea[data-key]');
+items.forEach(ta=>{
+  const key = ta.dataset.key;
+  const saved = localStorage.getItem(key);
+  if(saved) ta.value = saved;
+  ta.addEventListener('input',()=>{
+    localStorage.setItem(key, ta.value);
+  })
+})
+</script>
+</body>
+</html>
